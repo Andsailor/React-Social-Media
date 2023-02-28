@@ -1,0 +1,23 @@
+.app-wrapper {
+  width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: 60px 1fr;
+  grid-template-columns: 2fr 10fr;
+  gap: 10px;
+  grid-template-areas: 
+  "header header header"
+  "nav content content";
+}
+
+.app-wrapper-content {
+    grid-area: content;
+    background-color: #DCDDD8; 
+}
+
+body {
+  background: rgb(161,224,221);
+  background: linear-gradient(90deg, rgba(161,224,221,1) 0%, rgba(237,176,219,0.9990371148459384) 35%, rgba(171,218,221,1) 42%, rgba(237,176,219,0.9990371148459384) 91%);
+}
+
+

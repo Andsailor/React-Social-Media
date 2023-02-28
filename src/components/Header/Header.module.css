@@ -1,0 +1,23 @@
+.header {
+    grid-area: header;
+    padding: 5px;
+    background-color: #D74B4B;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header img {
+    width: 50px;
+}
+
+.title {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.loginBlock {
+    font-size: 20px;
+    font-weight: 800;
+}

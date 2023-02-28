@@ -1,0 +1,48 @@
+.dialogs {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}   
+
+.dialogsItems {
+    padding: 15px;
+}
+
+.personItem {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    border-right: 1px solid black;
+}
+
+.personName {
+    text-decoration: none;
+    margin-left: 10px;
+    color: black;
+    transition: .3s all;
+}
+
+.active {
+    color: #D74B4B;
+    text-decoration: none;
+    margin-left: 10px;
+    transition: .3s all;
+    font-size: 20px;
+}
+
+.personName:hover {
+    font-size: 18px;
+}
+
+.messages {
+    padding: 15px;
+}
+
+.messages .message {
+
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+}

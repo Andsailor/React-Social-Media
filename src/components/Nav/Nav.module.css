@@ -1,0 +1,27 @@
+.nav {
+    grid-area: nav;
+    background-color: #475F77;
+    padding: 20px;
+    border: 1px;
+}
+  
+.nav li {
+  list-style: none;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.item a {
+  text-decoration: none;
+  color: white;
+  transition: 0.3s all;
+}
+
+.item a:hover {
+  font-size: 23px;
+}
+
+.item a.active {
+  color:aquamarine;
+  font-size: 27px;
+}
