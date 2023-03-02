@@ -6,12 +6,11 @@ import classes from './MyPosts.module.css'
 
 // Components imports
 import Post from './Post/Post';
+import AddPostReduxForm from '../../Forms/AddPostForm';
 
 const MyPosts = (props) => {
 
     let state = props.profile;
-
-    let newPostElement = React.createRef();
 
     let postsElem = state.postsData.map(post => {
         return (
@@ -19,32 +18,16 @@ const MyPosts = (props) => {
         )
     })
 
-    let onAddPost = () => {
-        props.addPost();
+    let addNewPost = (values) => {
+        props.addPost(values.newPostText);
     }
-
-    let onPostChange = () => {
-        let text = newPostElement.current.value;
-        props.updateNewPostText(text);
-    };
 
     return (
         <div className={classes.postsBlock}>
             <h3>My Posts</h3>
-            <div>
-                <div>
-                    <textarea ref={newPostElement}
-                        value={state.newPostText}
-                        onChange={onPostChange} />
-                </div>
-                <div>
-                    <button onClick={onAddPost}>Add post</button>
-                </div>
-            </div>
+            <AddPostReduxForm onSubmit={addNewPost} />
             <div className={classes.posts}>
-
                 {postsElem}
-
             </div>
         </div>
     )

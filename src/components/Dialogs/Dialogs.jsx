@@ -8,11 +8,13 @@ import classes from './Dialogs.module.css'
 import DialogItem from './Dialogitem/DialogItem';
 import Message from './Message/Message';
 
+import AddMessageReduxForm from '../Forms/DialogsForm.jsx'
+
 const Dialogs = (props) => {
 
     let state = props.messages;
 
-    const { messagesData, dialogsData, newMessageText } = state;
+    const { messagesData, dialogsData } = state;
 
     let dialogsItem = dialogsData.map(item => {
 
@@ -28,13 +30,8 @@ const Dialogs = (props) => {
         )
     })
 
-    let onMessageChange = (e) => {
-        let text = e.target.value;
-        props.updateNewMessageBody(text)
-    }
-
-    let onSendMessageClick = () => {
-        props.sendMessage();
+    let addNewMessage = (values) => {
+        props.sendMessage(values.newMessageText);
     }
 
     return (
@@ -45,20 +42,15 @@ const Dialogs = (props) => {
 
             </div>
             <div className={classes.messages}>
-
-                <div>{messagesItem}</div>
                 <div>
-                    <div><textarea
-                        value={newMessageText}
-                        placeholder='Enter your message'
-                        onChange={onMessageChange} >
-                    </textarea></div>
-                    <div><button onClick={onSendMessageClick}>Send message</button></div>
+                    {messagesItem}
                 </div>
-
+                <AddMessageReduxForm onSubmit={addNewMessage} />
             </div>
         </div>
     )
 }
+
+
 
 export default Dialogs;

@@ -6,6 +6,7 @@ const SET_USER_DATA = 'SET-USER-DATA';
 let initialState = {
     userId: null,
     email: null,
+    password: null,
     login: null,
     isAuth: false
 }
@@ -40,5 +41,16 @@ export const authMeThunkCreator = () => {
             })
     }
 }
+
+/* export const loginMeThunkCreator = (formData) => {
+    return (dispatch) => {
+        authAPI.login(formData.email, formData.password)
+            .then(response => {
+                if (response.status === 200 && response.data.resultCode === 0) {
+
+                }
+            })
+    }
+} */
 
 export default authReducer;

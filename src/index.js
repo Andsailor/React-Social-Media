@@ -11,7 +11,7 @@ import './index.css';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 // Show store
-console.log(store.getState());
+window.store = store;
 
 root.render(
     <React.StrictMode>

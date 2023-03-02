@@ -1,5 +1,4 @@
-const SEND_MESSAGE = 'SEND-MESSAGE',
-    UPDATE_NEW_MESSAGE_BODY = 'UPDATE-NEW-MESSAGE-BODY';
+const SEND_MESSAGE = 'SEND-MESSAGE';
 
 let initialState = {
     messagesData: [
@@ -15,8 +14,7 @@ let initialState = {
         { id: 3, name: "Josh", img: "https://cdn.dribbble.com/users/2493621/screenshots/8502207/8-bit-josh-allen-dribble_4x.png" },
         { id: 4, name: "Merlin", img: "https://octodex.github.com/images/baracktocat.jpg" },
         { id: 5, name: "Till", img: "https://i0.wp.com/haulixdaily.com/wp-content/uploads/2020/03/image.jpeg?fit=1500%2C1057&ssl=1" },
-    ],
-    newMessageText: ""
+    ]
 }
 
 const dialogsReducer = (state = initialState, action) => {
@@ -25,19 +23,11 @@ const dialogsReducer = (state = initialState, action) => {
 
         case SEND_MESSAGE:
 
-            let body = state.newMessageText;
+            let body = action.newMessageText;
 
             return {
                 ...state,
-                newMessageText: '',
                 messagesData: [...state.messagesData, { id: state.messagesData.length + 1, message: body }],
-            }
-
-        case UPDATE_NEW_MESSAGE_BODY:
-
-            return {
-                ...state,
-                newMessageText: action.text
             }
 
         default:
@@ -46,8 +36,6 @@ const dialogsReducer = (state = initialState, action) => {
     }
 }
 
-export const sendMessageActionCreator = () => ({ type: SEND_MESSAGE });
-export const updateNewMessageBodyActionCreator = (text) => ({ type: UPDATE_NEW_MESSAGE_BODY, text })
-
+export const sendMessageActionCreator = (newMessageText) => ({ type: SEND_MESSAGE, newMessageText });
 
 export default dialogsReducer;

@@ -1,5 +1,4 @@
 // React-redux ecosystem imports
-import { updateNewMessageBodyActionCreator } from '../../redux/dialogs-reducer';
 import { sendMessageActionCreator } from '../../redux/dialogs-reducer';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -20,11 +19,8 @@ let mapStateToProps = (state) => {
 let mapDispatchToProps = (dispatch) => {
 
     return {
-        updateNewMessageBody: (text) => {
-            dispatch(updateNewMessageBodyActionCreator(text))
-        },
-        sendMessage: () => {
-            dispatch(sendMessageActionCreator())
+        sendMessage: (newMessageText) => {
+            dispatch(sendMessageActionCreator(newMessageText))
         }
     }
 }
@@ -33,6 +29,5 @@ let DialogsContainer = compose(
     connect(mapStateToProps, mapDispatchToProps),
     withAuthRedirect
 )(Dialogs);
-
 
 export default DialogsContainer;
